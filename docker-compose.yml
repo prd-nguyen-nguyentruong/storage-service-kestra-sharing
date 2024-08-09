@@ -9,3 +9,21 @@ services:
       POSTGRES_DB: postgres
     volumes:
       - /var/lib/postgresql/data
+    networks:
+      - storage-service-network
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+    networks:
+      - storage-service-network
+
+
+
+networks:
+  storage-service-network:
