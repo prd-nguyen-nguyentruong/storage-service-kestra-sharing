@@ -1,9 +1,9 @@
 import express from "express";
-import userRouter from "@routes/user";
+import cloudinaryRouter from "@routes/cloudinary";
 
 
 const router = express.Router();
 
-router.use('/users', userRouter);
+router.use('/cloudinary', cloudinaryRouter);
 
 export default router;
