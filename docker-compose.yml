@@ -1,17 +1,4 @@
 services:
-  postgres:
-    image: postgres:16.4-bookworm
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
-    volumes:
-      - /var/lib/postgresql/data
-    networks:
-      - storage-service-network
-
   api:
     build:
       context: .
@@ -21,9 +8,24 @@ services:
     volumes:
       - .:/app
     networks:
-      - storage-service-network
+      - sdsp-common-services
 
+  mongodb-primary:
+    image: docker.io/bitnami/mongodb:7.0
+    environment:
+      - MONGODB_ADVERTISED_HOSTNAME=localhost
+      - MONGODB_REPLICA_SET_MODE=primary
+      - MONGODB_ROOT_PASSWORD=password123
+      - MONGODB_REPLICA_SET_KEY=replicasetkey123
+      - MONGODB_REPLICA_SET_NAME=replica
+    ports:
+      - '27017:27017'
+    networks:
+      - sdsp-common-services
+    volumes:
+    - /bitnami/mongodb
 
 
 networks:
-  storage-service-network:
+  sdsp-common-services:
+    external: true

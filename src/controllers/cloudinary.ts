@@ -1,8 +1,8 @@
 import CloudinaryService from "@services/cloudinary"
 
 class CloudinaryController {
-  static getImages = async (req: any, res: any) => {
-    const data = await CloudinaryService.getImages();
+  static getRaw = async (req: any, res: any) => {
+    const data = await CloudinaryService.getRaw(req.query);
 
     return res.send({ metadata: data })
   }

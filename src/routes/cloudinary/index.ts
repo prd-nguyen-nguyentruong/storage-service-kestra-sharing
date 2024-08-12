@@ -3,7 +3,7 @@ import CloudinaryController from "@controllers/cloudinary";
 
 const router = express.Router();
 
-router.get('/images', CloudinaryController.getImages);
+router.get('/raw', CloudinaryController.getRaw);
 
 export default router;
 

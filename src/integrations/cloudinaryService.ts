@@ -16,14 +16,14 @@ class CloudinaryServiceExternalAPI {
         CloudinaryServiceExternalAPI.cloudinaryClient = cloudinary;
     }
 
-    getImages = async (): Promise<UploadApiResponse> => {
+    getRaw = async (): Promise<UploadApiResponse> => {
         try {
           const result = await CloudinaryServiceExternalAPI.cloudinaryClient.api.resources({
-            resource_type: 'image',
+            resource_type: 'raw',
           });
           return result.resources;
         } catch (error) {
-          throw new Error(`Failed to fetch image: ${error}`);
+          throw new Error(`Failed to fetch raw: ${error}`);
         }
       }
 }
