@@ -1,6 +1,6 @@
 import { Job as jobModel } from "@models/job";
 
-class WeatherRepository {
+class JobRepository {
   get = async (params = {}) => {
     return await jobModel.find(params);
   }
@@ -10,4 +10,4 @@ class WeatherRepository {
   }
 }
 
-export default new WeatherRepository();
+export default new JobRepository();

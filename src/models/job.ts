@@ -7,4 +7,4 @@ const jobSchema = new Schema({
   link: Schema.Types.String,
 });
 
-export const Job = model('Weather', jobSchema);
+export const Job = model('Job', jobSchema);
