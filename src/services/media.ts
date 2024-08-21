@@ -4,6 +4,7 @@ class MediaService {
 
     async insertRaw(body: any) {
         try {
+            
             await JobRepository.insert(body);
 
         } catch (error) {

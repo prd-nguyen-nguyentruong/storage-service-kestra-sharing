@@ -19,3 +19,4 @@ services:
 networks:
   sdsp-common-services:
     name: sdsp-common-services
+    external: true
