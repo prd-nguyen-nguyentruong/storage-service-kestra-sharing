@@ -1,6 +1,6 @@
 services:
   kestra:
-    image: kestra/kestra:latest
+    image: kestra/kestra:latest-full
     container_name: kestra-demo
     ports:
       - "8080:8080"
